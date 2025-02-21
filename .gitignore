@@ -1,0 +1,33 @@
+# CLion specific
+.idea/
+cmake-build-*/
+
+# C++ build files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build directories
+build/
+bin/
+lib/
+
+# Dependency directories
+vcpkg/
+conan/
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+*.log
+*.tmp
