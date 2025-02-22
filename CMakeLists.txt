@@ -38,8 +38,27 @@ target_link_libraries(imgui PUBLIC
         SDL2::SDL2
 )
 
-add_executable(${PROJECT_NAME}
+# Source files for the game
+set(GAME_SOURCES
         src/main.cpp
+        src/Game/Game.cpp
+        src/Game/Game.hpp
+        src/Game/scripts/SpriteAnimation.cpp
+        src/Game/scripts/SpriteAnimation.hpp
+        src/Game/scripts/Player.cpp
+        src/Game/scripts/Player.hpp
+        src/Editor/SpriteAnimationEditor.cpp
+        src/Editor/SpriteAnimationEditor.hpp
+)
+
+add_executable(${PROJECT_NAME} ${GAME_SOURCES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/lib
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Game
+        ${imgui_SOURCE_DIR}
+        ${imgui_SOURCE_DIR}/backends
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
@@ -48,9 +67,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         imgui
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/lib
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${imgui_SOURCE_DIR}
-        ${imgui_SOURCE_DIR}/backends
-)
+# Optional: Copy assets if you have any
+# file(COPY ${CMAKE_SOURCE_DIR}/src/Game/assets DESTINATION ${CMAKE_BINARY_DIR})
