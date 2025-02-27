@@ -14,22 +14,9 @@ Game::~Game() {
 }
 
 void Game::_ready() {
-    // Initialize game objects
-    player = std::make_unique<Player>(renderer);
-    editor = std::make_unique<SpriteAnimationEditor>();
-
-    // Initialize game state
-    // TODO: Load levels, resources, etc.
 }
 
 void Game::_process() {
-    // Update non-physics related stuffee
-    player->update(deltaTime);
-    
-    // Update editor
-    editor->draw();
-
-    // Debug window
     ImGui::Begin("Debug");
     ImGui::Text("FPS: %.1f", ImGui::GetIO().Framerate);
     ImGui::End();
@@ -56,29 +43,11 @@ void Game::_input() {
         }
     }
 
-    // Handle continuous keyboard state
-    const Uint8* keyState = SDL_GetKeyboardState(nullptr);
-    if (keyState[SDL_SCANCODE_LEFT] || keyState[SDL_SCANCODE_A]) {
-        player->moveLeft();
-    }
-    else if (keyState[SDL_SCANCODE_RIGHT] || keyState[SDL_SCANCODE_D]) {
-        player->moveRight();
-    }
-    else {
-        player->stop();
-    }
-
-    if (keyState[SDL_SCANCODE_SPACE] || keyState[SDL_SCANCODE_W]) {
-        player->jump();
-    }
 }
 
 void Game::_draw() {
     SDL_SetRenderDrawColor(renderer, 64, 64, 64, 255);
     SDL_RenderClear(renderer);
-
-    // Render game objects
-    player->render();
 
     // Render ImGui
     ImGui::Render();

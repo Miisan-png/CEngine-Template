@@ -43,12 +43,6 @@ set(GAME_SOURCES
         src/main.cpp
         src/Game/Game.cpp
         src/Game/Game.hpp
-        src/Game/scripts/SpriteAnimation.cpp
-        src/Game/scripts/SpriteAnimation.hpp
-        src/Game/scripts/Player.cpp
-        src/Game/scripts/Player.hpp
-        src/Editor/SpriteAnimationEditor.cpp
-        src/Editor/SpriteAnimationEditor.hpp
 )
 
 add_executable(${PROJECT_NAME} ${GAME_SOURCES})

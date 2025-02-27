@@ -2,8 +2,6 @@
 #include <SDL.h>
 #include <imgui.h>
 #include <memory>
-#include "scripts/Player.hpp"
-#include "../Editor/SpriteAnimationEditor.hpp"
 
 class Game {
 private:
@@ -12,9 +10,6 @@ private:
     ImGuiIO* io = nullptr;
     bool isRunning = true;
 
-    std::unique_ptr<Player> player;
-    std::unique_ptr<SpriteAnimationEditor> editor;
-    
     float deltaTime = 0.0f;
     float lastFrameTime = 0.0f;
     float targetFrameRate = 60.0f;
@@ -29,8 +24,6 @@ private:
 public:
     Game();
     ~Game();
-
-    // godot inispried
 
     void _ready();        // Called when game starts
     void _process();      // Called every frame for non-physics updates
