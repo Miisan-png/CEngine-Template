@@ -48,7 +48,7 @@ set(GAME_SOURCES
 add_executable(${PROJECT_NAME} ${GAME_SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/lib
+        src/lib
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Game
         ${imgui_SOURCE_DIR}

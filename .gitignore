@@ -13,7 +13,7 @@ cmake-build-*/
 # Build directories
 build/
 bin/
-lib/
+src/lib/
 
 # Dependency directories
 vcpkg/
